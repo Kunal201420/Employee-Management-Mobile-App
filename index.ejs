@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management</title>
+</head>
+<body>
+  <h1>Employee Management</h1>
+  <a href="/employees/new">Add Employee</a>
+  <ul>
+    <% employees.forEach(employee => { %>
+      <li>
+        <a href="/employees/<%= employee._id %>">
+          <%= employee.name %> - <%= employee.position %>
+        </a>
+        <form action="/employees/<%= employee._id %>?_method=DELETE" method="post">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
